@@ -33,11 +33,13 @@ get_header(); ?>
 					the_post();
 
 					if ( is_home() || is_archive() ) {
-						//get_template_part( 'excerpt' );
-						the_content();
+
+						get_template_part( 'excerpt' );
+						
 					} else {
-						//get_template_part( 'content' );
-						the_content();
+						
+						get_template_part( 'content' );
+						
 					}
 
 				// End the loop.

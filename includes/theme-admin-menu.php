@@ -30,28 +30,16 @@ function themename_create_theme_options_page() {
  * Register our settings.
  */
 function themename_register_and_build_fields() {
-   register_setting('themename_theme_info', 
-                    'themename_theme_info', 
-                    'themename_options_sanitize_fields'
-                   );
+   register_setting('themename_theme_info', 'themename_theme_info', 'validate_setting');
 
    add_settings_section('main_section', 
-                        esc_html__( 'Main Settings', 'themename' ), 
-                        'themename_section_cb', 
-                        __FILE__
-                       );
-   add_settings_field('themename_ad_one', 
-                      esc_html__( 'Basic Info', 'themename' ),
-                      'themename_ad_setting_one', 
-                      __FILE__, 
-                      'main_section'
-                     );
-   add_settings_field('themename_ad_two', 
-                      esc_html__( 'Customizer Link', 'themename' ), 
-                      'themename_ad_setting_two', 
-                      __FILE__, 
-                      'main_section'
-                     ); 
+                        'Main Settings', 'themename_section_cb', __FILE__);
+   add_settings_field('themename_ad_one', esc_html__( 'Basic Info', 'themename' ),
+                      'themename_ad_setting_one', __FILE__, 
+                      'main_section');
+   add_settings_field('themename_ad_two', esc_html__( 'Customizer Link', 'themename' ), 
+                      'themename_ad_setting_two', __FILE__, 
+                      'main_section'); 
 }
 
 /**
@@ -69,7 +57,7 @@ function themename_options_sanitize_fields( $value ) {
  * If you want to apply the same sanitization to every option in the options group (your fields will be saved as an array) you can instead do something like this
  * Sanitize fields before adding to the database.
  */
-function themename_options_sanitize_fields( $value ) {
+function themename_options_sanitize_array_fields( $value ) {
     return array_map( 'sanitize_text_field', $value );
 }
 
@@ -122,7 +110,7 @@ function themename_options_page_fn() {
 
 // Ad one
 function themename_ad_setting_two() {
-   echo '<a class="button secondary" href="' . esc_url( admin_url( '/' ) . 'customize.php" 
+   echo '<a class="button secondary" href="' . esc_url( admin_url( '/' ) . 'customize.php') .'" 
         title="' . esc_attr__( 'Customize Theme Here', 'themename' ) . '">'
         . esc_html__( 'Customize Theme Here', 'themename' ) . '</a>';
 }

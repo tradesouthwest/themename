@@ -15,8 +15,6 @@
 add_action( 'wp_enqueue_scripts', 'themename_theme_customizer_css', 15 );  
 // A2
 add_action( 'customize_register', 'themename_register_theme_customizer_setup' );
-// A3
-add_action( 'after_setup_theme', 'themename_custom_header_and_background' );
 
 /**
  * Text sanitizer for numeric values
@@ -30,41 +28,24 @@ function themename_sanitize_integer( $input ) {
     }
 } 
 
-/**
- * Set default values in an arry
- * $hcdf  = get_template_directory_uri() . '/rels/swimmers-wide-default.jpg';
- * $hcdg  = get_template_directory_uri() . '/rels/1x1.png';
- * $hsdf  = get_stylesheet_directory_uri() . '/';
- */
-function themename_theme_defaults( $args ){
-	$defaults = array(
-		'fntfamily'  => 'sans-serif',
-		'maxw'       => '1200'
-
-	);
-	$args = wp_parse_args( $args, $defaults );
-
-	return( $args );
-}
-
 /** A1
  * CUSTOM FONT OUTPUT, CSS
  * The @font-face rule should be added to the stylesheet before any styles. (priority 2)
  * @uses background-image as linear gradient meerly remove any input background image.
  * @since 1.0.0
 */
-function themename_theme_customizer_css() {
+function themename_theme_customizer_css($args) {
     
     if( get_theme_mods() ) : 
-	$fntfamily  = ( empty( get_theme_mod( 'themename_fontfamily' ) ) ) 
-			? themename_theme_defaults( esc_attr( $args['fntfamily'])) 
-			: wp_strip_all_tags( get_theme_mod( 'themename_fontfamily' ) );
-	$maxw       = ( empty( get_theme_mod( 'themename_maxwidth' ) ) ) 
-			? themename_theme_defaults( esc_attr( $args['maxw']))
-                  	: get_theme_mod( 'themename_maxwidth' );        
+	$fntfamily = 'sans-serif';
+	$maxw      = '1200';	
+	$fntfamily = ( empty( get_theme_mod( 'themename_fontfamily' ) ) ) ? esc_attr( $fntfamily )  
+			     : wp_strip_all_tags( get_theme_mod( 'themename_fontfamily' ) );
+	$maxw      = ( empty( get_theme_mod( 'themename_maxwidth' ) ) ) ? esc_attr( $maxw )
+                 : get_theme_mod( 'themename_maxwidth' );        
 
 	/* use above set values into inline styles */
-    	$cssstyles = 
+    $cssstyles = 
 	'body, button, input, select, textarea, p{ font-family: '. esc_attr( $fntfamily ) .';}
 	.page article.page, .single article.post{max-width: '. esc_attr( $maxw ) .'px;margin: 0 auto;}';
     
@@ -111,7 +92,7 @@ function themename_register_theme_customizer_setup($wp_customize)
 		'type'        => 'select',
     	'choices'     => array(
 			'inherit'    => esc_attr__( 'Select font', 'themename' ),
-        		'sans-serif' => esc_attr__( 'Sans Serif', 'themename'),
+        	'sans-serif' => esc_attr__( 'Sans Serif', 'themename'),
 			'serif'      => esc_attr__( 'Serif', 'themename'),
 			'Helvetica'  => esc_attr__( 'Helvetica', 'themename'),
 			'Arial'      => esc_attr__( 'Arial', 'themename'),

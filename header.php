@@ -37,7 +37,7 @@
 				<?php 
 				if ( has_nav_menu( 'primary' ) ) : ?>
 				<div id="menu-toggle">
-					<span class="menu-toggle">|||</span>
+					<span class="menu-toggle"><strong>|||</strong></span>
 					<span class="menu-toggle-text screen-reader-text"><?php esc_html_e( 'open menu', 'themename' ); ?></span>	
 				</div>
 				<div class="nav-inside">

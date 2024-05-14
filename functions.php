@@ -168,7 +168,7 @@ function themename_theme_widgets_init() {
 		array(
 			'name'          => __( 'Primary Sidebar', 'themename' ),
 			'id'            => 'sidebar-primary',
-			'description'   => __( 'Appears in the hero large image section', 'themename' ),
+			'description'   => __( 'Appears in section', 'themename' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',

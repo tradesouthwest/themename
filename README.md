@@ -1,18 +1,16 @@
-# Themename
-Starter theme options pages and theme files to make ClassicPress themes with.
-
-Themename is a blogging theme made for ClassicPress.
+# April
+April is a blogging theme made for ClassicPress.
 
 - Requires PHP: 7.4
 - Requires CP:  1.4
 - Version:      1.0.0
 - Author:       Larry Judd
-- Tags:         translation-ready, featured-images, blog
+- Tags:         two-columns, translation-ready, featured-images, blog, e-commerce, news, custom-menu, custom-background, custom-logo, custom-header
 - License:      GPL 3 (see LICENSE)
-- Text domain:  themename
+- Text domain:  april
 
 # Description
-Themename is a blogging theme made for ClassicPress. Features include .... Demo at 
+April is a blogging theme made for ClassicPress. Features include fast loading templates. Upload Hero Image. Position for Image. Placement of Call to Action buttons. Choose the font family type. Demo at https://leadspilot.com/april-theme
 
 # Features
 Theme Options Include:
@@ -27,5 +25,4 @@ Theme Options Include:
 Theme built with CSS3 grid templating specifications for full mobile and small device support.
 
 # Support
-Use https://github.com/yourgitaccountname/themename/issues to post your issues with this theme.
-
+Use https://github.com/tradesouthwest/april/issues to post your issues with this theme.
