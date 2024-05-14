@@ -30,16 +30,28 @@ function themename_create_theme_options_page() {
  * Register our settings.
  */
 function themename_register_and_build_fields() {
-   register_setting('themename_theme_info', 'themename_theme_info', 'validate_setting');
+   register_setting('themename_theme_info', 
+                    'themename_theme_info', 
+                    'themename_options_sanitize_fields'
+                   );
 
    add_settings_section('main_section', 
-                        'Main Settings', 'themename_section_cb', __FILE__);
-   add_settings_field('themename_ad_one', esc_html__( 'Basic Info', 'themename' ),
-                      'themename_ad_setting_one', __FILE__, 
-                      'main_section');
-   add_settings_field('themename_ad_two', esc_html__( 'Customizer Link', 'themename' ), 
-                      'themename_ad_setting_two', __FILE__, 
-                      'main_section'); 
+                        esc_html__( 'Main Settings', 'themename' ), 
+                        'themename_section_cb', 
+                        __FILE__
+                       );
+   add_settings_field('themename_ad_one', 
+                      esc_html__( 'Basic Info', 'themename' ),
+                      'themename_ad_setting_one', 
+                      __FILE__, 
+                      'main_section'
+                     );
+   add_settings_field('themename_ad_two', 
+                      esc_html__( 'Customizer Link', 'themename' ), 
+                      'themename_ad_setting_two', 
+                      __FILE__, 
+                      'main_section'
+                     ); 
 }
 
 /**
