@@ -56,13 +56,15 @@ function themename_theme_defaults( $args ){
 function themename_theme_customizer_css() {
     
     if( get_theme_mods() ) : 
-	$fntfamily  = ( empty( get_theme_mod( 'themename_fontfamily' ) ) ) ? themename_theme_defaults( esc_attr( $args['fntfamily'])) 
-				  : wp_strip_all_tags( get_theme_mod( 'themename_fontfamily' ) );
-	$maxw       = ( empty( get_theme_mod( 'themename_maxwidth' ) ) ) ? themename_theme_defaults( esc_attr( $args['maxw']))
-                  : get_theme_mod( 'themename_maxwidth' );        
+	$fntfamily  = ( empty( get_theme_mod( 'themename_fontfamily' ) ) ) 
+			? themename_theme_defaults( esc_attr( $args['fntfamily'])) 
+			: wp_strip_all_tags( get_theme_mod( 'themename_fontfamily' ) );
+	$maxw       = ( empty( get_theme_mod( 'themename_maxwidth' ) ) ) 
+			? themename_theme_defaults( esc_attr( $args['maxw']))
+                  	: get_theme_mod( 'themename_maxwidth' );        
 
 	/* use above set values into inline styles */
-    $cssstyles = 
+    	$cssstyles = 
 	'body, button, input, select, textarea, p{ font-family: '. esc_attr( $fntfamily ) .';}
 	.page article.page, .single article.post{max-width: '. esc_attr( $maxw ) .'px;margin: 0 auto;}';
     
@@ -109,7 +111,7 @@ function themename_register_theme_customizer_setup($wp_customize)
 		'type'        => 'select',
     	'choices'     => array(
 			'inherit'    => esc_attr__( 'Select font', 'themename' ),
-        	'sans-serif' => esc_attr__( 'Sans Serif', 'themename'),
+        		'sans-serif' => esc_attr__( 'Sans Serif', 'themename'),
 			'serif'      => esc_attr__( 'Serif', 'themename'),
 			'Helvetica'  => esc_attr__( 'Helvetica', 'themename'),
 			'Arial'      => esc_attr__( 'Arial', 'themename'),
