@@ -28,7 +28,29 @@
  */
 /* ----------------------------------------- 1.0 - Normalize
  note> ToC markers use 40 dashes </note */
- 
+/*--------------------------------------------------------------
+ *
+ * CSS Custom Variables
+ *
+ * These enable consistent changes to be made throughout the theme just
+ * by changing the value of the custom property here.
+ *
+ *------------------------------------------------------------*/
+:root {
+	--main-bg-color: #fffefc;
+	--classic-bg-color: linear-gradient(-135deg, #3ebca6 18%, #057f99 50%, #006b81 100%);
+	--hover-bg-color: #5f5f5f;
+	--font: "Liberation Sans", "Nimbus Sans L", "Roboto", "Lato", sans-serif;
+	--pre-font: "Courier 10 Pitch", Courier, monospace;
+	--code-font: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	--font-color: #464646;
+	--font-alt-color: white;
+	--sidebar-bg-color: #f0ff7f;
+	--link-color: #04667c;
+	--nav-link-color: #404040;
+	--focus-outline: 2px dotted #565656;
+	--button-color: #006b81;
+}
 /*
  Avoid text overflows
 */
@@ -236,10 +258,10 @@ ul li {
 body {
     width: 98.8992%;
     font-weight: normal;
-    font-size: 16px;
+    color: var(--font-color);
+	font-family: var(--font);
     line-height: 1.42857143;
     margin: 0 auto;
-    color: #464646;
     line-height: initial;
 }
 
